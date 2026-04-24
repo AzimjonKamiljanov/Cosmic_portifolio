@@ -22,11 +22,11 @@ export default function PlanetSystem() {
         <group key={index}>
           {/* Orbit ring */}
           <mesh rotation={[-Math.PI / 2, 0, 0]}>
-            <ringGeometry args={[orbit.radius - 0.05, orbit.radius + 0.05, 128]} />
+            <ringGeometry args={[orbit.radius - 0.02, orbit.radius + 0.02, 128]} />
             <meshBasicMaterial
-              color="#00D4FF"
+              color="#3B82F6"
               transparent
-              opacity={0.08}
+              opacity={0.15}
               side={THREE.DoubleSide}
               depthWrite={false}
             />
@@ -41,18 +41,46 @@ export default function PlanetSystem() {
           />
         </group>
       ))}
-      {/* Central star */}
-      <mesh>
-        <sphereGeometry args={[2.5, 32, 32]} />
-        <meshStandardMaterial
-          color="#FFF4E6"
-          emissive="#FF6000"
-          emissiveIntensity={2}
-          roughness={1}
-          metalness={0}
-        />
-      </mesh>
-      <pointLight position={[0, 0, 0]} color="#FF8C00" intensity={3} distance={50} />
+      {/* Central Black Hole */}
+      <group>
+        {/* Event Horizon (Pure Black) */}
+        <mesh>
+          <sphereGeometry args={[2.5, 32, 32]} />
+          <meshBasicMaterial color="#000000" />
+        </mesh>
+
+        {/* Accretion Disk (Glowing Ring) */}
+        <mesh rotation={[-Math.PI / 2.5, 0, 0]}>
+          <ringGeometry args={[2.8, 5.0, 64]} />
+          <meshStandardMaterial
+            color="#8B5CF6"
+            emissive="#8B5CF6"
+            emissiveIntensity={2}
+            transparent
+            opacity={0.8}
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
+        </mesh>
+
+        <mesh rotation={[-Math.PI / 2.2, 0, 0]}>
+          <ringGeometry args={[3.0, 4.5, 64]} />
+          <meshStandardMaterial
+            color="#3B82F6"
+            emissive="#3B82F6"
+            emissiveIntensity={1.5}
+            transparent
+            opacity={0.6}
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
+        </mesh>
+      </group>
+
+      {/* Light emitted from the accretion disk */}
+      <pointLight position={[0, 0, 0]} color="#8B5CF6" intensity={2} distance={60} />
+      <pointLight position={[0, 2, 0]} color="#3B82F6" intensity={1} distance={40} />
+      <pointLight position={[0, -2, 0]} color="#3B82F6" intensity={1} distance={40} />
     </group>
   );
 }

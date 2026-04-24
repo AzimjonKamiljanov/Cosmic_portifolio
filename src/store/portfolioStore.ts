@@ -8,6 +8,7 @@ export interface Project {
   color: string;
   github: string;
   demo: string;
+  textureUrl: string;
 }
 
 export const projects: Project[] = [
@@ -16,45 +17,50 @@ export const projects: Project[] = [
     name: "CosmicApp",
     description: "A full-stack web application with real-time features and collaborative tools",
     tech: ["React", "Node.js", "MongoDB"],
-    color: "#FF6B6B",
+    color: "#3B82F6", // Darker blue for cyber dark
     github: "#",
     demo: "#",
+    textureUrl: "/textures/earth.jpg",
   },
   {
     id: 2,
     name: "NebulaCMS",
     description: "Content management system with headless architecture and GraphQL API",
     tech: ["Next.js", "PostgreSQL", "GraphQL"],
-    color: "#4ECDC4",
+    color: "#DC2626", // Deep red for mars cyber dark
     github: "#",
     demo: "#",
+    textureUrl: "/textures/mars.jpg",
   },
   {
     id: 3,
     name: "StarTrader",
     description: "Cryptocurrency trading dashboard with live data and analytics",
     tech: ["React", "WebSocket", "Chart.js"],
-    color: "#FFE66D",
+    color: "#D97706", // Deep orange for jupiter
     github: "#",
     demo: "#",
+    textureUrl: "/textures/jupiter.jpg",
   },
   {
     id: 4,
     name: "GalaxyAI",
     description: "AI-powered image generation and editing tool using deep learning",
     tech: ["Python", "TensorFlow", "FastAPI"],
-    color: "#A78BFA",
+    color: "#8B5CF6", // Dark purple for venus cyber dark
     github: "#",
     demo: "#",
+    textureUrl: "/textures/venus.jpg",
   },
   {
     id: 5,
     name: "OrbitChat",
     description: "Real-time chat application with video calling and screen sharing",
     tech: ["React", "WebRTC", "Socket.io"],
-    color: "#60A5FA",
+    color: "#059669", // Deep cyan/emerald for neptune cyber dark
     github: "#",
     demo: "#",
+    textureUrl: "/textures/neptune.jpg",
   },
 ];
 
