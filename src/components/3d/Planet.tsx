@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Html } from "@react-three/drei";
+import { Html, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { usePortfolioStore, Project } from "@/store/portfolioStore";
 
@@ -72,14 +72,15 @@ export default function Planet({
   };
 
   const color = new THREE.Color(project.color);
+  const texture = useTexture(project.textureUrl);
 
   return (
     <group ref={groupRef}>
       <pointLight
         position={[0, 0, 0]}
         color={project.color}
-        intensity={hovered ? 3 : 1.5}
-        distance={8}
+        intensity={hovered ? 1.5 : 0.5}
+        distance={10}
       />
       <mesh
         ref={meshRef}
@@ -89,11 +90,11 @@ export default function Planet({
       >
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial
-          color={color}
+          map={texture}
           emissive={color}
-          emissiveIntensity={hovered ? 0.8 : 0.3}
-          roughness={0.4}
-          metalness={0.6}
+          emissiveIntensity={hovered ? 0.3 : 0.05}
+          roughness={0.8}
+          metalness={0.2}
         />
       </mesh>
       {hovered && (

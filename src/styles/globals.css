@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-cyan: #00D4FF;
-  --color-electric-blue: #0066FF;
-  --color-cosmic-purple: #7C3AED;
+  --color-neon-cyan: #3B82F6;
+  --color-electric-blue: #1D4ED8;
+  --color-cosmic-purple: #4C1D95;
   --color-space-black: #000000;
-  --color-dark-space: #050510;
+  --color-dark-space: #020205;
 
   --animate-spin-slow: spin 20s linear infinite;
   --animate-pulse-glow: pulseGlow 2s ease-in-out infinite;
   --animate-float: float 6s ease-in-out infinite;
 
-  --background-image-cosmic-gradient: radial-gradient(ellipse at center, #0a0a2e 0%, #000000 70%);
+  --background-image-cosmic-gradient: radial-gradient(ellipse at center, #050510 0%, #000000 80%);
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.7), 0 0 60px rgba(0, 212, 255, 0.3); }
+  0%, 100% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.1); }
 }
 
 @keyframes float {
@@ -25,9 +25,9 @@
 }
 
 :root {
-  --neon-cyan: #00D4FF;
-  --electric-blue: #0066FF;
-  --cosmic-purple: #7C3AED;
+  --neon-cyan: #3B82F6;
+  --electric-blue: #1D4ED8;
+  --cosmic-purple: #4C1D95;
 }
 
 * {
@@ -75,22 +75,22 @@ body {
 }
 
 .glow-border {
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 }
 
 .glow-border:hover {
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.1);
 }
 
 .cosmic-bg {
-  background: radial-gradient(ellipse at center, #0a0a2e 0%, #000000 70%);
+  background: radial-gradient(ellipse at center, #050510 0%, #000000 80%);
 }
 
 .glass {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 @layer utilities {
