@@ -24,7 +24,12 @@ export default function Planet({
   const meshRef = useRef<THREE.Mesh>(null);
   const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
-  const { setSelectedProject, setModalOpen, setHoveredPlanet } = usePortfolioStore();
+
+  // ⚡ Bolt Optimization: Use individual selectors to prevent all planets from re-rendering
+  // when any store state changes (like hoveredPlanet)
+  const setSelectedProject = usePortfolioStore((state) => state.setSelectedProject);
+  const setModalOpen = usePortfolioStore((state) => state.setModalOpen);
+  const setHoveredPlanet = usePortfolioStore((state) => state.setHoveredPlanet);
 
   const targetScale = useRef(1);
   const currentScale = useRef(1);

@@ -4,8 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { usePortfolioStore } from "@/store/portfolioStore";
 
 export default function ProjectModal() {
-  const { selectedProject, isModalOpen, setModalOpen, setSelectedProject } =
-    usePortfolioStore();
+  const selectedProject = usePortfolioStore((state) => state.selectedProject);
+  const isModalOpen = usePortfolioStore((state) => state.isModalOpen);
+  const setModalOpen = usePortfolioStore((state) => state.setModalOpen);
+  const setSelectedProject = usePortfolioStore((state) => state.setSelectedProject);
 
   const handleClose = () => {
     setModalOpen(false);
