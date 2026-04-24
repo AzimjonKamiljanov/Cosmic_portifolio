@@ -9,7 +9,8 @@ import { usePortfolioStore } from "@/store/portfolioStore";
 export default function ProjectsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const { setSelectedProject, setModalOpen } = usePortfolioStore();
+  const setSelectedProject = usePortfolioStore((state) => state.setSelectedProject);
+  const setModalOpen = usePortfolioStore((state) => state.setModalOpen);
 
   return (
     <section id="projects" className="relative py-10 px-6">
