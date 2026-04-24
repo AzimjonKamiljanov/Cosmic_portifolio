@@ -70,8 +70,9 @@ export default function Contact() {
         >
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <label className="text-gray-400 text-sm mb-2 block">Name</label>
+              <label htmlFor="name" className="text-gray-400 text-sm mb-2 block">Name</label>
               <input
+                id="name"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -82,8 +83,9 @@ export default function Contact() {
               />
             </div>
             <div>
-              <label className="text-gray-400 text-sm mb-2 block">Email</label>
+              <label htmlFor="email" className="text-gray-400 text-sm mb-2 block">Email</label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -96,8 +98,9 @@ export default function Contact() {
           </div>
 
           <div>
-            <label className="text-gray-400 text-sm mb-2 block">Message</label>
+            <label htmlFor="message" className="text-gray-400 text-sm mb-2 block">Message</label>
             <textarea
+              id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
