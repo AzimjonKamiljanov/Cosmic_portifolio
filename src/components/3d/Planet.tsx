@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Html, useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -71,7 +71,7 @@ export default function Planet({
     document.body.style.cursor = "default";
   };
 
-  const color = new THREE.Color(project.color);
+  const color = useMemo(() => new THREE.Color(project.color), [project.color]);
   const texture = useTexture(project.textureUrl);
 
   return (
@@ -87,6 +87,7 @@ export default function Planet({
         onClick={handleClick}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
+        onPointerUp={handleClick} // Better mobile support
       >
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial
