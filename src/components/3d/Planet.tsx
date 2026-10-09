@@ -74,12 +74,6 @@ export default function Planet({
   const color = useMemo(() => new THREE.Color(project.color), [project.color]);
   const texture = useTexture(project.textureUrl);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      handleClick();
-    }
-  };
-
   return (
     <group ref={groupRef}>
       <pointLight
@@ -94,7 +88,6 @@ export default function Planet({
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onPointerUp={handleClick} // Better mobile support
-        onKeyDown={handleKeyDown} // Trigger interaction on Enter or Space
       >
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial
